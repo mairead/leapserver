@@ -1,0 +1,31 @@
+body {
+/*  padding: 50px;*/
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#bigred{
+	background: red;
+	color: #fff;
+	padding: 10px;
+	border: 0;
+}
+
+#connectionId{
+	padding: 10px;
+	margin: 10px 10px 10px 0;
+}
+
+canvas {
+  pointer-events: none;
+}
+canvas.leap-data-plotter{
+  width: 300px;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  height: 100px; /* 50px per graph */
+}

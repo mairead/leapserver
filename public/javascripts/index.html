@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>Network</title>
+  <script src="//js.leapmotion.com/leap-0.6.4.js"></script>
+  <script src="//js.leapmotion.com/leap-plugins-0.1.10.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js"></script>
+  <script src="lib/leap.rigged-hand-0.1.4.js"></script>
+
+  <!--<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>-->
+  <script src="lib/peer-0.3.js"></script>
+  <script src="build/leap.networking-0.1.0.js"></script>
+
+  <script src="lib/LeapDataPlotter.js"></script>
+
+  <style>
+    canvas {
+      pointer-events: none;
+    }
+    canvas.leap-data-plotter{
+      width: 300px;
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      height: 100px; /* 50px per graph */
+    }
+  </style>
+
+</head>
+<body>
+
+
+<div>
+  <input id="connectTo" autofocus>
+  <button id="connect">connect</button>
+</div>
+
+
+
+  <script type="text/javascript">
+
+    window.controller = new Leap.Controller({
+      background: true,
+      checkVersion: false
+    });
+
+    controller.use('networking', {
+      // This is @pehrlich's free API key.  Limited to 50 concurrent users, but probably good to try things out.
+      // See http://peerjs.com/peerserver
+      peer: new Peer({key: 'k0ap3iwxm51p2e29'}),
+      plotter: new LeapDataPlotter()
+    });
+
+    // Uncomment for VR mode:
+//    controller.use('transform', {
+//      vr: true
+//    });
+
+    controller.use('riggedHand', {
+// turns out that this function is horrendously slow.
+//      boneLabels: function(boneMesh, leapHand){
+//        if (boneMesh.name != "Wrist") return;
+//        return leapHand.id
+//      }
+    });
+
+//    controller.connect();
+
+    var peer = controller.plugins.networking.peer;
+
+    window.location.hash = '';
+    peer.on('open', function(id){
+      window.location.hash = id;
+    });
+
+
+    document.getElementById('connect').onclick = function(){
+      controller.plugins.networking.connect(document.getElementById('connectTo').value);
+      controller.connect();
+    }
+  </script>
+
+
+</body>
+</html>
