@@ -8,13 +8,19 @@ a {
 }
 
 #bigred{
-	background: red;
+	background: #F16A3B;
 	color: #fff;
 	padding: 10px;
 	border: 0;
+  font-family: retro;
+  font-size: 50px;
+}
+#bigred:hover{
+   background: #c9542b;
 }
 
 #connectionId{
+  font-size: 35px;
 	padding: 10px;
 	margin: 10px 10px 10px 0;
 }
