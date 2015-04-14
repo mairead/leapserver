@@ -7,6 +7,14 @@ a {
   color: #00B7FF;
 }
 
+.network-connect{
+  background: #424242;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  float: left;
+}
+
 #bigred{
 	background: #F16A3B;
 	color: #fff;
@@ -20,7 +28,7 @@ a {
 }
 
 #connectionId{
-  font-size: 35px;
+  font-size: 33px;
 	padding: 10px;
 	margin: 10px 10px 10px 0;
 }
