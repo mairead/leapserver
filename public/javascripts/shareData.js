@@ -46,7 +46,7 @@
 
         peer.on('connection', function(conn){
 
-            console.log("new connection", conn)
+            //console.log("new connection", conn)
 
         });
     }
